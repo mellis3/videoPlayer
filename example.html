@@ -1,0 +1,72 @@
+
+<div class="videoWrapper"></div>
+
+<!-- if you don't already have jQuery, include it -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- include the video player functionality -->
+<script src="videoPlayer_v2.1.js" ></script>
+
+<!-- startup code, this could go in a separate JS file if you have one -->
+<script>
+    $(function(){
+
+
+
+
+        //startup video
+        //multiple video playlist style
+        var options = {
+            videoContainer      : $(".videoWrapper"), //div to put load the video content into
+            muted               : true, //if you want the first video to start muted
+            autoplay            : true, //if you want the first video to autoplay
+            showControls        : true, //if you want to show controls on hover of video
+            useOverlayButtons   : true, //if true this will add the buttons over you video
+            overlayBtns         : {
+                playAudio : "http://creative.snidigital.com/cs-core/plugins/videoPlayer/buttons/playwithsound.png",
+                replay    : "Replay"
+                //anything else you want it will add buttons for
+            },
+            loopThruPlaylist    : true, //if you want to loop from one video to the next in playlist
+            videos: [
+                //insert your videos here
+                //START of template for 1 video
+                {
+                    name: "video1", //used in automated tracking when creating tracking for this video
+                    sources : [
+                        "example.mp4",
+                        "example.webm"
+                    ],
+                    poster : "example.jpg",
+                    thumbnail : {
+                        image   : "exampleThumb.jpg", //or add an image URL in quotes like "http://www.google.com/awesome.jpg"
+                        text    : "Video 1", //or add text in quotes like "Awesome video #2"
+    					click	: null //if you want to track thumbnail clicks specifically
+                    },
+                    //leave below as blank quotes "" if using automated tracking
+                    tracking : {
+                        start           : "",
+                        quarter         : "",
+                        half            : "",
+                        threequarter    : "",
+                        full            : "",
+                        playaudio       : "",
+                        replay          : ""
+                    }
+                }
+                //END OF THE TEMPLATE FOR 1 video ---- copy from { to } to add another video
+                //don't forget a , to separate videos
+
+
+            ]
+
+            //optional options to include in docs but not in template
+            //startVideo: 2
+        };
+        video1 = new CS_videoPlayer(options);
+
+
+
+
+    });
+</script>
